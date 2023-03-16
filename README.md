@@ -1,34 +1,45 @@
 # DII-Challenge-2019
+
 The early identification of sepsis cases.
 
-# build the env
-	
-		pip install -r requirement.txt
+## build the env
 
-# data preprocessing
+```shell
+pip install -r requirement.txt
+```
 
--	creat result folder for data preprocessing results
+## data preprocessing
 
-		mkdir result
-		mkdir data
-		mkdir data/models
+- create result folder for data preprocessing results
 
--	generate json files 
+```shell
+mkdir result
+mkdir data
+mkdir data/models
+```
 
-		cd preprocessing
-		python gen_master_feature.py --master-file ../file/master.csv
-		python gen_feature_time.py --vital-file ../file/vital.csv				# only for task1
-		python gen_vital_feature.py --vital-file ../file/vital.csv
-		python gen_label_feature.py --label-file ../file/label.csv
+- generate json files
 
-#	train and validate the model, the best model will saved in ../data/models/
-		
-		python main.py --task case1		# for task1 case1
-		python main.py --task task1		# for task1 case2
-		python main.py --task task2		# for task2
+```shell
+cd preprocessing
+python gen_master_feature.py --master-file ../file/master.csv
+# only for task1
+python gen_feature_time.py --vital-file ../file/vital.csv
 
-#	You can also run the code by:
+python gen_vital_feature.py --vital-file ../file/vital.csv
+python gen_label_feature.py --label-file ../file/label.csv
 
-		python run.py --label-file ../file/label.csv --vital-file ../file/vital.csv --master-file  ../master.csv --task case1
+# train and validate the model, the best model will saved in ../data/models/
 
+# for task1 case1
+python main.py --task case1
+# for task1 case2
+python main.py --task task1
+# for task2
+python main.py --task task2
 
+# You can also run the code by:
+
+python run.py --label-file ../file/label.csv --vital-file ../file/vital.csv --master-file  ../master.csv --task case1
+
+```
